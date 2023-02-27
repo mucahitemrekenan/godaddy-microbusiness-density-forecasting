@@ -57,5 +57,5 @@ for county in tqdm(x_train['cfips'].unique()):
 # plt.show()
 
 sample_sub['microbusiness_density'] = pd.Series(preds_test['preds'])
-# sample_sub['microbusiness_density'] += 0.055
-sample_sub.to_csv('submissions/sample_submission_1_3.csv', index=False)
+sample_sub['microbusiness_density'] += 0.055
+sample_sub.to_csv('submissions/sample_submission_1_31.csv', index=False)
