@@ -51,10 +51,11 @@ for county in tqdm(x_train['cfips'].unique()):
     preds_test.loc[index_test, 'preds'] = model.predict(test.loc[index_test])
     preds_train.loc[index_train, 'preds'] = model.predict(x_train.loc[index_train])
 
-plt.plot(pd.Series(y_train), label='actual')
-plt.plot(pd.Series(preds_train['preds']), label='prediction')
-plt.legend()
-plt.show()
+# plt.plot(pd.Series(y_train), label='actual')
+# plt.plot(pd.Series(preds_train['preds']), label='prediction')
+# plt.legend()
+# plt.show()
 
 sample_sub['microbusiness_density'] = pd.Series(preds_test['preds'])
-sample_sub.to_csv('submissions/sample_submission_1_2.csv', index=False)
+sample_sub['microbusiness_density'] += 0.01
+sample_sub.to_csv('submissions/sample_submission_1_21.csv', index=False)
